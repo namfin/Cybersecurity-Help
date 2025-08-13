@@ -233,44 +233,173 @@ body {
   }
 }
 
-/* navbar  */
+/* navbar */
+.material-symbols-outlined {
+  font-size: 16px !important; /* size of arrow */
+  vertical-align: middle;
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24 !important; /* keep it thin and clean */
+}
 
-.navbar {
-  background-color: #ffffff;
+/* ===== HEADER WRAPPER ===== */
+
+.header-wrapper {
+  background: #fff;
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #fff; /* Keep solid background so it's visible over content */
+  z-index: 1; /* Ensure it's above everything */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.16);
 }
 
-.sticky-navbar {
-  position: sticky;
-  top: 0;
-  z-index: 1030;
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 15px;
 }
 
-.nav-link {
-  color: #000000;
-  font-weight: 500;
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.nav-link:hover {
+/* ===== MAIN MENU ===== */
+.main-menu > ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+.main-menu li {
+  position: relative;
+}
+
+.main-menu a {
+  display: block;
+  font-size: 14px;
+  padding: 15px 20px;
+  text-decoration: none;
+  color: #000;
+}
+
+.main-menu li a .menu-text {
+  transition: all 0.35s ease-in-out;
+}
+.main-menu li:hover > a .menu-text {
   color: #ec333b;
 }
 
-.logo-img {
-  width: 226px;
-  height: 75px;
-  transition: height 0.3s ease;
+/* ===== SUBMENU ===== */
+.submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  min-width: 220px !important;
+  border: none;
+  z-index: 1000;
+  flex-direction: column;
+
+  margin-left: 0 !important; /* Remove any extra margin */
+  padding-left: 0 !important; /* Fix the typo here */
 }
 
-/* Smaller logo on screens < 768px (Bootstrap's md breakpoint) */
-@media (max-width: 767.98px) {
-  .logo-img {
-    height: 40px;
+.submenu li {
+  list-style: none;
+  border-bottom: 1px solid #cccccc;
+  margin: 0; /* Remove any extra gap from li */
+  padding: 0;
+}
+
+.submenu li:last-child {
+  border-bottom: none !important;
+}
+
+.submenu li a {
+  padding: 12px 15px;
+  display: block; /* Ensures link fills full width */
+  color: #000;
+  transition: all 0.35s ease-in-out;
+}
+.submenu li a:hover {
+  background: #3a3490;
+  color: #fff;
+}
+
+/* ===== DESKTOP HOVER BEHAVIOR ===== */
+@media (min-width: 769px) {
+  .has-child:hover > .submenu {
+    display: flex;
+  }
+
+  .submenu .has-child:hover > .submenu {
+    display: flex;
+    left: 100%;
+    top: 0;
   }
 }
 
-@media (min-width: 992px) {
-  .custom-w-lg {
-    width: 30% !important;
+/* ===== MOBILE MENU TOGGLE ===== */
+.menu-ctrl {
+  display: none;
+  cursor: pointer;
+}
+
+.menu-ctrl img {
+  width: 28px;
+  height: 28px;
+  vertical-align: middle;
+}
+
+/* ===== MOBILE STYLES ===== */
+@media (max-width: 768px) {
+  /* Stack menu vertically */
+  .main-menu > ul {
+    flex-direction: column;
+    display: none;
+    width: 100%;
+    background: #fff;
+    border-top: 1px solid #ddd;
+  }
+
+  /* Show menu when open */
+  .main-menu.open > ul {
+    display: flex;
+  }
+
+  /* Mobile submenu style */
+  .submenu {
+    position: static;
+    border: none;
+  }
+
+  .submenu.open {
+    display: flex;
+  }
+
+  .submenu li a {
+    padding-left: 30px;
+  }
+
+  /* Show toggle icons */
+  .menu-ctrl {
+    display: block;
+  }
+
+  /* Only show menu icon initially */
+  .menu-ctrl .menuclose {
+    display: none;
+  }
+
+  /* When menu is open, show close icon */
+  .main-menu.open ~ .menu-ctrl .menuhumber {
+    display: none;
+  }
+  .main-menu.open ~ .menu-ctrl .menuclose {
+    display: inline;
   }
 }
 
