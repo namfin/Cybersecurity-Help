@@ -992,3 +992,17 @@ body {
     gap: 10px;
   }
 }
+/*to  stop scroll in x-dirction in mobile  */
+@media (max-width: 768px) {
+  html,
+  body {
+    overflow-x: hidden !important;
+  }
+
+  .main-menu,
+  .submenu,
+  .faq-banner,
+  .container {
+    max-width: 100% !important;
+  }
+
