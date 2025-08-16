@@ -997,6 +997,7 @@ body {
   html,
   body {
     overflow-x: hidden !important;
+    overflow-y: hidden !important ;
   }
 
   .main-menu,
@@ -1005,4 +1006,5 @@ body {
   .container {
     max-width: 100% !important;
   }
+
 
