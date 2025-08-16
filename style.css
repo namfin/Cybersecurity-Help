@@ -10,6 +10,22 @@ body {
   overflow-x: hidden;
 }
 
+/* to stop scrolling in x-direction in mobile */
+
+@media (max-width: 768px) {
+  html,
+  body {
+    overflow-x: hidden !important;
+  }
+
+  .main-menu,
+  .submenu,
+  .faq-banner,
+  .container {
+    max-width: 100% !important;
+  }
+}
+
 /* top navbar */
 /* TOP NAVBAR */
 .top-navbar {
@@ -439,6 +455,14 @@ body {
     width: 100%;
   }
 
+  .main-menu > ul {
+    flex: 1;
+    overflow-y: auto;
+    margin: 0;
+    padding: 0 20px;
+    width: 100%;
+  }
+
   .main-menu > ul > li {
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     width: 100%;
@@ -485,7 +509,9 @@ body {
   }
 
   .menu-ctrl {
-    position: sticky;
+    position: fixed;
+    top: 15px;
+    right: 20px;
     z-index: 10001;
     background: #3a3490;
     padding: 10px;
@@ -992,19 +1018,3 @@ body {
     gap: 10px;
   }
 }
-/*to  stop scroll in x-dirction in mobile  */
-@media (max-width: 768px) {
-  html,
-  body {
-    overflow-x: hidden !important;
-    overflow-y: hidden !important ;
-  }
-
-  .main-menu,
-  .submenu,
-  .faq-banner,
-  .container {
-    max-width: 100% !important;
-  }
-
-
