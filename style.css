@@ -509,9 +509,7 @@ body {
   }
 
   .menu-ctrl {
-    position: fixed;
-    top: 15px;
-    right: 20px;
+    position: relative;
     z-index: 10001;
     background: #3a3490;
     padding: 10px;
@@ -534,6 +532,13 @@ body {
 
   .menu-ctrl.open .menuhumber {
     display: none;
+  }
+
+  .menu-ctrl.open {
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    z-index: 10001;
   }
 
   .menu-ctrl.open .menuclose {
@@ -1018,3 +1023,4 @@ body {
     gap: 10px;
   }
 }
+
